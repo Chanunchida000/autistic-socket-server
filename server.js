@@ -6,7 +6,6 @@ app.get('/', (req, res) => {
     res.send("<h1>เซิฟเปิดแล้ววัยรุ่น</h1>");
 })
 
-
 //__________ socket __________
 io.on('connection', (socket) => {
     socket.on('start', (status) => {
