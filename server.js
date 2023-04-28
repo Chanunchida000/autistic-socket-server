@@ -1,11 +1,17 @@
-const app = require("express")();
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
-
-app.get('/', (req, res) => {
-    res.send("<h1>เซิฟเปิดแล้ววัยรุ่น</h1>");
+const express = require('express');
+const app = express();
+const server = require('http').createServer(app);
+const PORT = process.env.PORT || 3000
+const io = require('socket.io')(server, {
+    perMessageDeflate :false,
+    cors: {
+        origin: '*',
+        methods: ['GET', 'POST'],
+    },
+});
+app.get('/',(req,res)=>{
+    res.send("<h1>โอเค เปิดแล้ว</h1>")
 })
-
 //__________ socket __________
 io.on('connection', (socket) => {
     socket.on('start', (status) => {
@@ -21,6 +27,6 @@ io.on('connection', (socket) => {
 
 //__________ PORT __________
 
-http.listen(3000, function () {
-    console.log('listening on *:3000');
+server.listen(PORT, () => {
+    console.log(`listening on *:${PORT}`);
 });
