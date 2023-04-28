@@ -50,5 +50,5 @@ jobs:
         with:
           app-name: 'autistic-socket-server'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_2F075D6532D8411580DB393713EA3937 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_030454539F36473D9A3FEA0BB06FB859 }}
           package: .
