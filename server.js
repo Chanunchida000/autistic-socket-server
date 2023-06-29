@@ -18,10 +18,6 @@ io.on('connection', (socket) => {
         console.log('id',status)
         io.emit('start_unity',status)
     });
-    socket.on('startage', (status) => {
-        console.log('age',status)
-        io.emit('start_unity',status)
-    });
 
 });
 
